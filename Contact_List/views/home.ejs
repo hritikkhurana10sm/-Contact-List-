@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- these rendering variables are stored in locals object like this
+        locals = {
+             title : value;
+        }
+        so we can access like locals.title or simply title
+    -->
+    <title><%= locals.title %></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+       <h1 id = "contact-heading">
+        <i class="fas fa-address-book"></i>
+        Contact List</h1> 
+       
+       <div>
+           <ul id = "list">
+               <% for(let i of contacts_list){ %>
+                    <li>
+                        <span><%= i.name%></span>
+                        <span><%= i.phone%></span>
+                        <a href = "/delete-contact/?id=<%= i._id%>"><i class= "fas fa-trash-alt"></i></a>
+                    </li>
+               <%}%>
+           </ul>
+       </div>
+
+       <form action="/create-contact" method = "POST">
+         <div>
+         <input type="text" name="name" id="" placeholder = "Write Name" required>
+         <input type="number" name="phone" id="" placeholder="Write phone number" required>
+        </div>
+         <button type = "submit">Add Contact</button>
+        </form>
+
+        <script src = "/js/home.js"></script>
+</body>
+</html>

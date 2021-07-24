@@ -1,0 +1,73 @@
+ #  res.send('<h1>Hey I am using Express Js Here!!</h1>')  
+ -> to send the data through single or multiple line we use res.send
+
+Erros possible : 
+1. Library inclusion
+2. Syntax Error -> brackets not closed or wrong quotes 
+
+<% for(let i = 1 ; i < 6 ; i++){%>
+                 <li>
+                     <%= i %>
+                 </li>
+       <%}%>
+
+- The thing to be printed then = required
+- But when conditional statement used  , = not required    
+
+_Local Views_
+
+local  = {
+    title : "my contacts";
+}
+
+local.title <- we can access like this*
+
+______________________________________________
+Project : Contact Lists
+Tech Stack : ExpressJs , EJS (template Engine)
+
+Creating : 
+
+1. form filled
+2. submit
+3. action route 
+4. redirected
+
+______________________________________________
+1. data from the server
+2. parser
+3. req = {
+
+    body : {
+        name : value,
+        phone: value
+    }
+}
+
+
+Note : to go to same page , we can use res.redirect('back');
+
+
+
+________________MiddleWare__________________
+
+app.use -> middleware
+
+Static Files ____________________________
++ Static files are used to provide javascript and css and images to the ejs dynamic rendered page
+Static files in this project are : 
+
+css -> home.css
+images -> 
+js -> home.js
+
+
+
+//for static usage , deleting and updating the data
+
+let contactIndex = contactList.findIndex(contact => contact.phone == phone);
+
+     if(contactIndex != -1){
+
+         contactList.splice(contactIndex , 1);
+     } 
